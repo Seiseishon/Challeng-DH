@@ -1,49 +1,14 @@
 import './assets/styles/style.css'
+import NavBar from './components/NavBar'
 
 export default function App() {
   return (
-    <div className="dashboard">
+    <div className="dashboard grid w-full h-screen gap-0 dark:bg-dark-100">
       {/*Sección de acceso*/}
-      <section className="search-wrap">
-        <div className="search">
-          <label htmlFor="search">
-            <i
-              className="bi bi-search"
-              style={{ fontSize: "1.5rem", color: "cornflowerblue" }}
-            />
-            <input type="text" id="search" />
-          </label>
-        </div>
-        <div className="user-actions">
-          <button>
-            <a href="#">
-              <i
-                className="bi bi-person-add"
-                style={{ fontSize: "1.5rem", color: "cornflowerblue" }}
-              />
-            </a>
-          </button>
-          <button>
-            <a href="#">
-              <i
-                className="bi bi-person"
-                style={{ fontSize: "1.5rem", color: "cornflowerblue" }}
-              />
-            </a>
-          </button>
-          <button>
-            <a href="#">
-              <i
-                className="bi bi-box-arrow-right"
-                style={{ fontSize: "1.5rem", color: "cornflowerblue" }}
-              />
-            </a>
-          </button>
-        </div>
-      </section>
+      <NavBar />
       {/*Fin Sección de acceso*/}
       {/*Sección menu*/}
-      <header className="menu-wrap">
+      <header className="menu-wrap dark:bg-dark-400">
         <figure className="user">
           <div className="user-avatar">
             <img src="./assets/img/logo-dh.png" alt="Logo Digital House	" />
@@ -97,7 +62,7 @@ export default function App() {
       </header>
       {/*Fin Sección menu*/}
       {/*Sección contenido*/}
-      <main className="content-wrap">
+      <main className="content-wrap dark:bg-dark-400">
         {/*Preventa*/}
         <header className="preventa">
           <h2>Búsqueda y selección</h2>
