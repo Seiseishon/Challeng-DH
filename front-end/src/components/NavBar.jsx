@@ -16,14 +16,14 @@ export default function NavBar() {
 
 
     return (
-        <section className="search-wrap bg-light-400 dark:bg-dark-400 dark:text-dark-100 text-xl transition-colors duration-500">
+        <section className="search-wrap dark:bg-violet-900 text-purple-300 text-xl transition-colors duration-500">
             <div className="search">
                 <label htmlFor="search">
                     <i
                         className="bi bi-search"
                         style={{ fontSize: "1.5rem", color: "cornflowerblue" }}
                     />
-                    <input className="dark:bg-dark-100" type="text" id="search" />
+                    <input className="dark:bg-purple-500 transition-colors duration-500" type="text" id="search" />
                 </label>
             </div>
             <div className="user-actions">

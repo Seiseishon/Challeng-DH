@@ -3,12 +3,12 @@ import NavBar from './components/NavBar'
 
 export default function App() {
   return (
-    <div className="dashboard grid w-full h-screen gap-0 dark:bg-dark-100">
+    <div className="dashboard grid w-full h-screen gap-0 dark:bg-purple-600 transition-colors duration-500">
       {/*Sección de acceso*/}
       <NavBar />
       {/*Fin Sección de acceso*/}
       {/*Sección menu*/}
-      <header className="menu-wrap dark:bg-dark-400">
+      <header className="menu-wrap dark:bg-violet-900 transition-colors duration-500">
         <figure className="user">
           <div className="user-avatar">
             <img src="./assets/img/logo-dh.png" alt="Logo Digital House	" />
@@ -17,10 +17,10 @@ export default function App() {
         </figure>
         <nav>
           <section className="menu">
-            <h3>Opciones</h3>
+            <h3 className='dark:text-purple-200'>Opciones</h3>
             <ul>
               <li>
-                <a href="#">
+                <a href="#" className='dark:text-purple-100'>
                   <i
                     className="bi bi-building"
                     style={{ fontSize: "1.2rem", color: "cornflowerblue" }}
@@ -29,7 +29,7 @@ export default function App() {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" className='dark:text-purple-100'>
                   <i
                     className="bi bi-person"
                     style={{ fontSize: "1.2rem", color: "cornflowerblue" }}
@@ -38,12 +38,13 @@ export default function App() {
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <i className="bi bi-list-check" />- Profesiones
+                <a href="#" className='dark:text-purple-100'>
+                  <i className="bi bi-list-check dark:text-purple-200"/>
+                  - Profesiones
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" className='dark:text-purple-100'>
                   <i
                     className="bi bi-person-vcard"
                     style={{ fontSize: "1.2rem", color: "cornflowerblue" }}
@@ -52,8 +53,8 @@ export default function App() {
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <i className="bi bi-chat-left-text" />- Contacto
+                <a href="#" className='dark:text-purple-100'>
+                  <i className="bi bi-chat-left-text dark:text-purple-200" />- Contacto
                 </a>
               </li>
             </ul>
@@ -62,11 +63,11 @@ export default function App() {
       </header>
       {/*Fin Sección menu*/}
       {/*Sección contenido*/}
-      <main className="content-wrap dark:bg-dark-400">
+      <main className="content-wrap dark:bg-violet-900 transition-colors duration-500">
         {/*Preventa*/}
         <header className="preventa">
-          <h2>Búsqueda y selección</h2>
-          <p className="text-center h5">
+          <h2 className='dark:text-purple-200'>Búsqueda y selección</h2>
+          <p className="text-center h5 dark:text-purple-100">
             Encontramos talento para tu empresa, en todos los cargos
             administrativos, profesionales y técnicos.
           </p>
@@ -78,9 +79,9 @@ export default function App() {
         {/*Fin Preventa*/}
         {/*Sección aspirantes*/}
         <section className="content aspirantes">
-          <h2>Aspirantes</h2>
+          <h2 className='dark:text-purple-200'>Aspirantes</h2>
           <article className="person-boxes">
-            <div className="person-box shadow p-3 mb-5 bg-body-tertiary rounded">
+            <div className="person-box shadow p-3 mb-5 bg-body-tertiary rounded dark:bg-purple-300">
               <div className="box-avatar">
                 <img src="./assets/img/foto1.jpg" alt="Gloria" />
               </div>
@@ -205,7 +206,7 @@ export default function App() {
         {/*Fin sección aspirantes*/}
         {/*Sección de profesiones*/}
         <section className="content profesiones">
-          <h2 className="mt-3">Profesiones</h2>
+          <h2 className="mt-3 dark:text-purple-200">Profesiones</h2>
           <div className="list-group shadow-sm p-3 mb-5 rounded">
             <h4
               className="list-group-item list-group-item-action active text-center"
