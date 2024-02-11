@@ -1,10 +1,14 @@
 const express = require('express');
-const app = express();
+const app = express()
 
-require('dotenv').config({path:'./.env'})
+//Upraise server
+let PORT = 3000;
+app.listen(PORT, () => console.log(`corriendo en el puerto ${PORT}`));
 
-const puerto = process.env.PORT || 3000
+//API
+const apiApplicants = require('./src/routes/API/applicantsRoute');
+const apiProfessions = require('./src/routes/API/professionsRoute');
 
-app.listen(puerto, () => console.log(`SERVER RUNNING IN PORT: ${puerto}`));
-
-
+//Use of the API
+app.use(apiApplicants);
+app.use(apiProfessions);
