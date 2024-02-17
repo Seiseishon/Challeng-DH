@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
     let alias = "Applicants"
     let cols = {
@@ -42,16 +40,23 @@ module.exports = (sequelize, dataTypes) => {
         image: {
             type: dataTypes.STRING(255)
         },
-        //TIMESTAMPS
-        createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE,
     };
     let config = {
-        tableName: "applicants"
+        tableName: "applicants",
+        timestamps: false
     }
 
-
-    const Applicant = sequelize.define(alias, cols, config)
-
+    const Applicant = sequelize.define(alias, cols, config);
+    
+    Applicant.associate = (models) => {
+        Applicant.belongsToMany(models.Professions, {
+            as: 'Professions',
+            through: 'ProfessionApplicant',
+            foreignKey: 'applicantId',
+            otherKey: 'professionId',
+            timestamps: false
+        });
+    }
+    
     return Applicant
 }
