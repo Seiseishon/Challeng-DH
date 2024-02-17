@@ -1,4 +1,3 @@
-const { sequelize } = require(".");
 
 module.exports = (sequelize, dataTypes) => {
 
@@ -12,23 +11,24 @@ module.exports = (sequelize, dataTypes) => {
         profession:{
             type: dataTypes.STRING(200)
         },
-
-        //TIMESTAMPS
-        createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE,
-
     };
     let config = {
         tableName: "professions",
+        timestamps: false
     };
-
-
-
-
 
     const Profession = sequelize.define(alias, cols, config)
 
+    Profession.associate = (models) => {
+        Profession.belongsToMany(models.Applicants, {
+            as: 'Applicants',
+            through: 'ProfessionApplicant',
+            foreignKey: 'professionId',
+            otherKey: 'applicantId',
+            timestamps: false
+        })
+    }
+
+
     return Profession
 }
-
-
