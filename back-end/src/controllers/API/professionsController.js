@@ -1,7 +1,5 @@
 //DataBase
-
 const { Professions } = require("../../database/models");
-
 
 module.exports = {
     list: async (req, res) => {
@@ -17,7 +15,6 @@ module.exports = {
                 },
                 data: data
             }
-
             res.status(200).json(dataProfession)
 
         } catch (error) {
