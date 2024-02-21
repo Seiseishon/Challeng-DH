@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
 
     let alias = "Professions"
@@ -9,26 +7,26 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        profession:{
+        profession: {
             type: dataTypes.STRING(200)
         },
-
-        //TIMESTAMPS
-        createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE,
-
     };
     let config = {
         tableName: "professions",
+        timestamps: false
     };
-
-
-
-
 
     const Profession = sequelize.define(alias, cols, config)
 
+    Profession.associate = (models) => {
+        Profession.belongsToMany(models.Applicants, {
+            as: 'Applicants',
+            through: 'ProfessionApplicant',
+            foreignKey: 'professionId',
+            otherKey: 'applicantId',
+            timestamps: false
+        })
+    }
+
     return Profession
 }
-
-
