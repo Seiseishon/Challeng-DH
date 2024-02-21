@@ -2,8 +2,10 @@
 import React from "react"
 import { useState } from "react"
 
+function searchWrap() {
 
-//{<!--Sección de acceso-->}
+	return(
+  <>
 		<section class="search-wrap">
 			<div class="search">
 				<label for="search">
@@ -26,3 +28,8 @@ import { useState } from "react"
 				</button>
 			</div>
 		</section>
+	</>
+	);
+}
+
+export default searchWrap;
