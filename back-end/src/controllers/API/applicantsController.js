@@ -14,32 +14,73 @@ module.exports = {
                     URL: `${req.protocol}://${req.get("host")}${req.url}`,
                     count: data.length
                 },
-                data: data.map((Element) => {
+                data: data.map((applicant) => {
+                    let imgUrl = `${req.protocol}://${req.get("host")}/images/users/${applicant.image}`;
                     return {
-                        id: Element.id,
-                        FisrtName: Element.firstName,
-                        LastName: Element.lastName,
-                        Email: Element.email,
-                        UrlProfile: Element.urlProfile
-                        ? Element.urlProfile
-                        : 'sin perfil en linkedin',
-                        Gender: Element.gender,
-                        Image: Element.image
-                        ? Element.image
-                        : 'defecto.jpg',
-                        Profession: Element.profession
-                        ? Element.profession.map((Element, i) =>{
-                            return {id: i, Element}
-                        })
-                        : 'without profession'
-                    }
+                        id: applicant.id,
+                        firstName: applicant.firstName,
+                        lastName: applicant.lastName,
+                        email: applicant.email,
+                        urlProfile: applicant.urlProfile,
+                        gender: applicant.gender,
+                        image: applicant.image = imgUrl,
+                        professions: {
+                            count: applicant.Professions.length,
+                            data: applicant.Professions.map((profession) => {
+                                return {
+                                    id: profession.id,
+                                    profession: profession.profession
+                                }
+                            })
+                        }
+                    };
                 })
-            }
-
+            };
             res.status(200).json(applicantData);
+
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Server error' });
+        }
+    },
+    detail: async (req, res) => {
+        try {
+            const data = await Applicants.findByPk(req.params.id, {
+                include: [{ association: 'Professions' }]
+            })
+
+            if (!data) {
+                throw new Error('El usuario no existe');
+            }
+            let imgUrl = `${req.protocol}://${req.get("host")}/images/users/${data.image}`;
+
+            const applicant = {
+                id: data.id,
+                dni: data.dni,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email,
+                phone: data.phone,
+                urlProfile: data.urlProfile,
+                birthDate: data.birthDate,
+                gender: data.gender,
+                image: data.image = imgUrl,
+                professions: {
+                    count: data.Professions.length,
+                    data: data.Professions.map((profession) => {
+                        return {
+                            id: profession.id,
+                            profession: profession.profession
+                        }
+                    })
+                }
+            };
+
+            res.json(applicant);
+
+        } catch (error) {
+            console.error(error);
+            res.status(404).json({ error: 'wrong request' });
         }
     }
 }

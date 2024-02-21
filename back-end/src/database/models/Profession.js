@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, dataTypes) => {
 
     let alias = "Professions"
@@ -8,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        profession:{
+        profession: {
             type: dataTypes.STRING(200)
         },
     };
@@ -28,7 +27,6 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         })
     }
-
 
     return Profession
 }

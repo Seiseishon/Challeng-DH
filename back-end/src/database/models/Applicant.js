@@ -27,7 +27,8 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true
         },
         urlProfile: {
-            type: dataTypes.STRING(255)
+            type: dataTypes.STRING(255),
+            notNull: true
         },
         birthDate: {
             type: dataTypes.DATE,
@@ -38,7 +39,8 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true
         },
         image: {
-            type: dataTypes.STRING(255)
+            type: dataTypes.STRING(255),
+            notNull: true
         },
     };
     let config = {
@@ -47,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const Applicant = sequelize.define(alias, cols, config);
-    
+
     Applicant.associate = (models) => {
         Applicant.belongsToMany(models.Professions, {
             as: 'Professions',
@@ -57,6 +59,6 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         });
     }
-    
+
     return Applicant
 }
