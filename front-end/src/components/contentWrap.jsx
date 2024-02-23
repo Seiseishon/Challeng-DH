@@ -1,26 +1,35 @@
-import React from "react";
-import { useState } from "react";
-import applicants from "./applicants";
-import professions from "./professions";
+import PanelWrap from "./PanelWrap";
+import Applicants from "./Applicants/Applicants";
+import Professions from "./Professions/Professions";
 
-function contentWrap(){
-    const [count, setCount] = useState(0);
- return (
-	<>
-     <main class="content-wrap">
-			<header class="preventa">
+import banner from "../assets/img/banner.jpg";
 
-				<h2>Búsqueda y selección</h2>
-				<p class="text-center h5">Encontramos talento para tu empresa, en todos los cargos administrativos, profesionales y técnicos.</p>
-				<div>
-					<img src="./assets/img/banner.jpg" alt="Rcursos Humanos"/>
-				</div>
-			</header>
-			<applicants/>
-		    <professions/>
-		</main>
-	</>
-	);
+export default function ContentWrap() {
+  return (
+    <>
+      <main className="col-[2] row-[2] p-[3em] overflow-auto bg-gray-50 border-l border-gray-300">
+        {/*Preventa*/}
+        <PanelWrap title="Búsqueda y selección">
+          <p className="text-center text-gray-400 text-xl">
+            Encontramos talento para tu empresa, en todos los cargos
+            administrativos, profesionales y técnicos.
+          </p>
+          <div>
+            <img src={banner} alt="Rcursos Humanos" />
+          </div>
+        </PanelWrap>
+        {/*Fin Preventa*/}
+        {/*Sección aspirantes*/}
+        <PanelWrap title="Aspirantes">
+          <Applicants />
+        </PanelWrap>
+        {/*Fin sección aspirantes*/}
+        {/*Sección de profesiones*/}
+        <PanelWrap title="Profesiones">
+          <Professions />
+        </PanelWrap>
+        {/*Fin sección profesiones*/}
+      </main>
+    </>
+  );
 }
-
- export default contentWrap;
