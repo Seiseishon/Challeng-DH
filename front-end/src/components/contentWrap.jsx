@@ -2,7 +2,7 @@ import PanelWrap from "./PanelWrap";
 import Applicants from "./Applicants/Applicants";
 import Professions from "./Professions/Professions";
 
-import banner from "../assets/img/banner.jpg";
+import banner from "../assets/img/public/banner.jpg";
 
 export default function ContentWrap() {
   return (

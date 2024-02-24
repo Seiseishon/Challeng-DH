@@ -1,5 +1,5 @@
 
-import logoDh from "../assets/img/logo-dh.png";
+import logoDh from "../assets/img/public/logo-dh.png";
 
 export default function Logo() {
   return (
