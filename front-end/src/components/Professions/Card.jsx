@@ -3,10 +3,10 @@ export default function Card({ profession, isLast }) {
     <>
       <button
         type="button"
-        className={`p-[8px_16px] text-light-700 bg-light-200 hover:bg-light-300 border-light-300 ${
+        className={`p-[8px_16px] text-black bg-white hover:bg-slate-50 border-slate-300 transition-colors duration-300 ${
           isLast ? "rounded-b-[8px]" : ""
         }
-      dark:bg-dark-800 dark:hover:bg-dark-700 dark:border-dark-700 dark:text-dark-300 border no-underline border-t-0 decoration-slice z-[1]
+      dark:bg-bunker-900 dark:hover:bg-bunker-800 dark:border-bunker-500 dark:text-bunker-200 border no-underline border-t-0 decoration-slice z-[1]
       `}
       >
         {profession}

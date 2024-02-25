@@ -20,13 +20,13 @@ export default function Professions() {
   return (
     <>
       <div
-        className="p-4 mb-12 rounded shadow shadow-light-600 flex flex-col
-      dark:shadow-dark-400
+        className="p-4 mb-12 rounded shadow shadow-slate-400 flex flex-col
+      dark:shadow-bunker-200
       "
       >
         <h4
-          className="bg-gradient-to-r from-light-300 to-light-500 text-light-800 z-[2] text-center border border-light-500 rounded-t-[inherit] relative p-[8px_16px] m-[0_0_8px] text-2xl
-        dark:bg-gradient-to-l dark:from-dark-700 dark:to-dark-500 dark:border-dark-500 dark:text-dark-200"
+          className="bg-blue-600 text-white z-[2] text-center rounded-t-[inherit] relative p-[8px_16px] m-[0_0_8px] text-2xl
+        dark:bg-gradient-to-r from-bright-turquoise-700 to-bright-turquoise-500 dark:text-bunker-50 transition-colors duration-300"
         >
           Listado de Profesionales
         </h4>
