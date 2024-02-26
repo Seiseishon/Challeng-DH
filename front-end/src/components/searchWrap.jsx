@@ -35,7 +35,7 @@ export default function SearchWrap() {
             />
           </label>
         </div>
-        <div className="w-[160]">
+        <div className="w-40">
           <button>
             <i
               onClick={handleClick}
