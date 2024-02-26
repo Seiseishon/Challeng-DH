@@ -1,4 +1,5 @@
 export default function Card({ img, firstName, lastName, profession }) {
+
   return (
     <>
       <div
@@ -8,7 +9,7 @@ export default function Card({ img, firstName, lastName, profession }) {
       >
         <div>
           <div className="w-[100px] h-[100px] rounded-[50%] m-[0_auto] overflow-hidden">
-            <img src={'h'} alt={firstName} />
+            <img src={img} alt={firstName} />
           </div>
           <div>
             <h2

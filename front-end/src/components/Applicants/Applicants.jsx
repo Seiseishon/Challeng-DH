@@ -20,10 +20,11 @@ export default function Applicants() {
   return (
     <article className="p-0 grid grid-cols-repeat gap-[2em]">
       {applicant.map((element, i) => {
+
         return (
           <Card
             key={i}
-            img={element.imgPerfil}
+            img={element.image}
             firstName={element.firstName}
             lastName={element.lastName}
             profession={element.professions.data}

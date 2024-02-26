@@ -15,7 +15,7 @@ module.exports = {
                     count: data.length
                 },
                 data: data.map((applicant) => {
-                    let imgUrl = `${req.protocol}://${req.get("host")}/images/users/${applicant.image}`;
+                    let imgUrl = `${req.protocol}://${req.get("host")}/img/applicants/${applicant.image}`;
                     return {
                         id: applicant.id,
                         firstName: applicant.firstName,
@@ -52,7 +52,7 @@ module.exports = {
             if (!data) {
                 throw new Error('El usuario no existe');
             }
-            let imgUrl = `${req.protocol}://${req.get("host")}/images/users/${data.image}`;
+            let imgUrl = `${req.protocol}://${req.get("host")}/img/applicants/${data.image}`;
 
             const applicant = {
                 id: data.id,
