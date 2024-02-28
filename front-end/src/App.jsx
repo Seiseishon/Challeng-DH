@@ -2,6 +2,7 @@ import SearchWrap from "./components/searchWrap";
 import MenuWrap from "./components/menuWrap";
 import ContentWrap from "./components/contentWrap";
 import Logo from "./components/Logo";
+import Formulario from "./components/Formulario";
 
 export default function App() {
   return (
@@ -20,6 +21,8 @@ export default function App() {
       {/*Sección contenido*/}
       <ContentWrap />
       {/*Fin Sección contenido*/}
+      <Formulario />
+      {/* Formulario */}
     </div>
   );
 }
