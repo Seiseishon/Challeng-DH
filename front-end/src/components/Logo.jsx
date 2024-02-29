@@ -6,6 +6,7 @@ export default function Logo() {
     <>
       <figure className="col-[1] row-[1] h-20 flex items-center content-start m-0 p-[0_3em] w-[300px] bg-white
       dark:bg-bunker-950 transition duration-300
+      max-md:hidden
       ">
         <div className="w-10 h-10 rounded-[50%] overflow-hidden">
           <img
