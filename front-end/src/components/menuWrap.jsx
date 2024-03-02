@@ -1,15 +1,15 @@
+import React from "react";
+
 export default function MenuWrap() {
   return (
-    <>
-      <header className="col-[1] row-[2] pb-[3em] overflow-auto bg-white w-[300px] h-full
+    <div>
+      <header className="col-[1] row-[2] pb-[3em] overflow-auto bg-white w-[300px]
       dark:bg-bunker-950 transition duration-300
-      max-md:hidden
       ">
         <nav className="block p-[0_3em] h-[243]">
           <section className="block p-[3em_0_0]">
             <h3 className="m-0 text-[0.875em] uppercase text-blue-500 font-semibold
-            dark:text-bright-turquoise-400
-            ">
+            dark:text-bright-turquoise-400">
               Opciones
             </h3>
             <ul className="p-0 m-0 block">
@@ -77,6 +77,8 @@ export default function MenuWrap() {
           </section>
         </nav>
       </header>
-    </>
-  );
+    
+    </div>
+    
+  ); 
 }
