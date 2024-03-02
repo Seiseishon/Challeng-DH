@@ -1,4 +1,5 @@
 // DataBase
+const { application } = require("express");
 const { Applicants } = require("../../database/models");
 
 module.exports = {
@@ -43,6 +44,7 @@ module.exports = {
             res.status(500).json({ error: 'Server error' });
         }
     },
+
     detail: async (req, res) => {
         try {
             const data = await Applicants.findByPk(req.params.id, {
@@ -82,5 +84,18 @@ module.exports = {
             console.error(error);
             res.status(404).json({ error: 'wrong request' });
         }
-    }
+    },
+
+    create: (req, res) => {
+
+        Applicants.create(req.body)
+        .then(applicant => {
+            return res.status(200).json({
+                data: applicant,
+                status: 200,
+                created: 'ok'
+            })
+        })
+        
+}    
 }
