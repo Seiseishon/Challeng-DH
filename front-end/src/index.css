@@ -6,4 +6,13 @@
   html {
     font-family: "Roboto", system-ui, sans-serif;
   }
+  .nav {
+    @apply relative tracking-[1px] hover:text-blue-500 dark:hover:text-bright-turquoise-400
+  }
+  .nav::after {
+    @apply content-[''] bg-blue-500 dark:bg-bright-turquoise-400 h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300
+  }
+  .nav:hover::after {
+    @apply w-full
+  }
 }

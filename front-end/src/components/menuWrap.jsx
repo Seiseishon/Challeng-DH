@@ -1,8 +1,9 @@
 export default function MenuWrap() {
   return (
     <>
-      <header className="col-[1] row-[2] pb-[3em] overflow-auto bg-white w-[300px]
+      <header className="col-[1] row-[2] pb-[3em] overflow-auto bg-white w-[300px] h-full
       dark:bg-bunker-950 transition duration-300
+      max-md:hidden
       ">
         <nav className="block p-[0_3em] h-[243]">
           <section className="block p-[3em_0_0]">

@@ -7,12 +7,11 @@ import Formulario from "./components/Formulario";
 export default function App() {
   return (
     <div
-      className={
-        "grid w-full h-screen gap-0 grid-cols-[300px_auto] grid-rows-[80px_auto] *:box-border"
-      }
+      className="grid h-screen gap-0 grid-cols-[300px_auto] grid-rows-[80px_auto] *:box-border
+    max-md:grid-cols-1" 
     >
       {/*Sección de acceso*/}
-      <SearchWrap />
+      <SearchWrap />  
       {/*Fin Sección de acceso*/}
       {/*Sección menu*/}
       <Logo />
