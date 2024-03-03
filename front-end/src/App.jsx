@@ -4,6 +4,8 @@ import ContentWrap from "./components/contentWrap";
 import Logo from "./components/Logo";
 import Formulario from "./components/Formulario";
 
+import { BrowserRoutes as  Router, Route, Link } from 'react-router-dom';
+
 export default function App() {
   return (
     <div
