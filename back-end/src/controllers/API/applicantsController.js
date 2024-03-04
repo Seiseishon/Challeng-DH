@@ -88,7 +88,20 @@ module.exports = {
 
     create: (req, res) => {
 
-        Applicants.create(req.body)
+        const newApplicant = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            dni: req.body.dni,
+            email: req.body.email,
+            phone: req.body.phone,
+            urlProfile: req.body.urlProfile,
+            birthDate: req.body.birthDate,
+            gender: req.body.gender,
+            image: req.body.image};
+            
+
+        /* res.json(newApplicant) */
+        Applicants.create(newApplicant)
         .then(applicant => {
             return res.status(200).json({
                 data: applicant,
