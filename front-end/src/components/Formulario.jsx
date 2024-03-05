@@ -1,8 +1,7 @@
-import React from "react";
 
-export default function Formulario() {
+export default function Formulario(prop) {
     return (
-      <section>
+      <>
         <form>
           <h1>Postulate acá</h1>
             <label>Nombre</label>
@@ -41,7 +40,7 @@ export default function Formulario() {
               </select>
           
         </form>
-      </section>
+      </>
     );
   }
 

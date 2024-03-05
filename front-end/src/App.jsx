@@ -4,7 +4,7 @@ import ContentWrap from "./components/contentWrap";
 import Logo from "./components/Logo";
 import Formulario from "./components/Formulario";
 
-import { BrowserRoutes as  Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -17,8 +17,11 @@ export default function App() {
       {/*Fin Sección de acceso*/}
       {/*Sección menu*/}
       <Logo />
-      <MenuWrap />
-      {/*Fin Sección menu*/}
+
+        <BrowserRouter>
+          <MenuWrap />
+          {/*Fin Sección menu*/}
+        </BrowserRouter>
       {/*Sección contenido*/}
       <ContentWrap />
       {/*Fin Sección contenido*/}

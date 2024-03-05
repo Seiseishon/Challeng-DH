@@ -1,8 +1,11 @@
 import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import Formulario from "./Formulario";
+
 
 export default function MenuWrap() {
   return (
-    <div>
+    <>
       <header className="col-[1] row-[2] pb-[3em] overflow-auto bg-white w-[300px]
       dark:bg-bunker-950 transition duration-300
       ">
@@ -15,7 +18,7 @@ export default function MenuWrap() {
             <ul className="p-0 m-0 block">
               <li className="block p-0 m-[1em_0_0]">
                 <a
-                  href="#"
+                  
                   className="flex h-5 items-center start-0 justify-start text-slate-400 hover:text-blue-950
                   no-underline font-semibold text-[0.875em] transition-[color] 
                   ease-[ease] duration-[0.15s]
@@ -27,7 +30,7 @@ export default function MenuWrap() {
               </li>
               <li className="block p-0 m-[1em_0_0]">
                 <a
-                  href="#"
+                  
                   className="flex h-5 items-center start-0 justify-start text-slate-400 hover:text-blue-950
                 no-underline font-semibold text-[0.875em] transition-[color] 
                 ease-[ease] duration-[0.15s]
@@ -39,7 +42,7 @@ export default function MenuWrap() {
               </li>
               <li className="block p-0 m-[1em_0_0]">
                 <a
-                  href="#"
+                  
                   className="flex h-5 items-center start-0 justify-start text-slate-400 hover:text-blue-950
                 no-underline font-semibold text-[0.875em] transition-[color] 
                 ease-[ease] duration-[0.15s]
@@ -50,20 +53,18 @@ export default function MenuWrap() {
                 </a>
               </li>
               <li className="block p-0 m-[1em_0_0]">
-                <a
-                  href="#"
-                  className="flex h-5 items-center start-0 justify-start text-slate-400 hover:text-blue-950
+
+                <Link to= '/Formulario' className="flex h-5 items-center start-0 justify-start text-slate-400 hover:text-blue-950
                 no-underline font-semibold text-[0.875em] transition-[color] 
                 ease-[ease] duration-[0.15s]
                 dark:text-bunker-400 dark:hover:text-bright-turquoise-100
-                "
-                >
+                ">
                   <i className="bi bi-person-vcard text-lg mr-1" />- Postulate aquí
-                </a>
+                </Link>
               </li>
               <li className="block p-0 m-[1em_0_0]">
                 <a
-                  href="#"
+                  
                   className="flex h-5 items-center start-0 justify-start text-slate-400 hover:text-blue-950
                 no-underline font-semibold text-[0.875em] transition-[color] 
                 ease-[ease] duration-[0.15s]
@@ -78,7 +79,11 @@ export default function MenuWrap() {
         </nav>
       </header>
     
-    </div>
+    <Routes>
+      <Route path="/Formulario" element={<Formulario /> }></Route>
+    </Routes>
+
+    </>
     
   ); 
 }
