@@ -102,41 +102,17 @@ module.exports = {
             
             try {
                 const newApplicant = await Applicants.create(data);
-                /* .then(applicant => {
-                    return res.status(200).json({
-                        data: applicant,
-                        status: 200,
-                        created: 'ok'
-                    })
-                }); */
 
                 const applicantData = {
                     meta: {
                         status: 200,
                         URL: `${req.protocol}://${req.get("host")}${req.url}`,
-                        count: data.length
+                        count: newApplicant.length
                     },
-                    data: data.map((applicant) => {
-                        let imgUrl = `${req.protocol}://${req.get("host")}/img/applicants/${applicant.image}`;
-                        return {
-                            id: applicant.id,
-                            firstName: applicant.firstName,
-                            lastName: applicant.lastName,
-                            email: applicant.email,
-                            urlProfile: applicant.urlProfile,
-                            gender: applicant.gender,
-                            image: applicant.image = imgUrl,
-                            professions: {
-                                count: applicant.Professions.length,
-                                data: applicant.Professions.map((profession) => {
-                                    return {
-                                        id: profession.id,
-                                        profession: profession.profession
-                                    }
-                                })
-                            }
-                        };
-                    })
+                    data: newApplicant
+                            
+                        
+                    
                 };
             
                 res.json(applicantData)
@@ -150,9 +126,9 @@ module.exports = {
         edit: async (req, res) => {
 
             const idToEdit = req.params.id;
-
+            
             try{
-                Applicants.update({
+                const applicantEdit = await Applicants.update({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 dni: req.body.dni,
@@ -161,7 +137,8 @@ module.exports = {
                 urlProfile: req.body.urlProfile,
                 birthDate: req.body.birthDate,
                 gender: req.body.gender,
-                image: req.body.image
+                image: req.body.image,
+                profession: Professions.findByPk(req.body.profession)
                 }, {
                     where: {id: idToEdit}
                 })
@@ -170,6 +147,21 @@ module.exports = {
                 console.error(error);
                 res.status(404).json({ error: "wrong request" })
             }
+        },
+
+        delete: async (req, res) => {
+            
+            try{
+                const idToDelete = await req.params.id;
+                
+                Applicants.destroy({
+                    where: {id: idToDelete}
+                });
+            
+            }catch(error){
+                console.error(error);
+                res.status(404).json({ error: "wrong request"})
             }
+        }
         
 }

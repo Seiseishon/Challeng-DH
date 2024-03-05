@@ -8,7 +8,6 @@
     "server": "nodemon app.js",
     "client": "cd.. && npm run dev --prefix ./front-end",
     "start": "concurrently --kill-others-on-fail \"npm run server\"  \"npm run client\" "
-
   },
   "keywords": [],
   "author": "",
@@ -20,6 +19,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "method-override": "^3.0.0",
     "mysql2": "^3.9.1",
     "sequelize": "^6.36.0"
   }

@@ -3,8 +3,10 @@ const app = express()
 const cors = require('cors')
 const path = require('path')
 
+const methodOverride = require('method-override')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(methodOverride('_method'))
 
 app.use(cors())
 
