@@ -86,9 +86,9 @@ module.exports = {
         }
     },
 
-    create: (req, res) => {
+    create: async (req, res) => {
 
-        const newApplicant = {
+        const data = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             dni: req.body.dni,
@@ -97,18 +97,79 @@ module.exports = {
             urlProfile: req.body.urlProfile,
             birthDate: req.body.birthDate,
             gender: req.body.gender,
-            image: req.body.image};
+            image: req.body.image
+        };
             
+            try {
+                const newApplicant = await Applicants.create(data);
+                /* .then(applicant => {
+                    return res.status(200).json({
+                        data: applicant,
+                        status: 200,
+                        created: 'ok'
+                    })
+                }); */
 
-        /* res.json(newApplicant) */
-        Applicants.create(newApplicant)
-        .then(applicant => {
-            return res.status(200).json({
-                data: applicant,
-                status: 200,
-                created: 'ok'
-            })
-        })
+                const applicantData = {
+                    meta: {
+                        status: 200,
+                        URL: `${req.protocol}://${req.get("host")}${req.url}`,
+                        count: data.length
+                    },
+                    data: data.map((applicant) => {
+                        let imgUrl = `${req.protocol}://${req.get("host")}/img/applicants/${applicant.image}`;
+                        return {
+                            id: applicant.id,
+                            firstName: applicant.firstName,
+                            lastName: applicant.lastName,
+                            email: applicant.email,
+                            urlProfile: applicant.urlProfile,
+                            gender: applicant.gender,
+                            image: applicant.image = imgUrl,
+                            professions: {
+                                count: applicant.Professions.length,
+                                data: applicant.Professions.map((profession) => {
+                                    return {
+                                        id: profession.id,
+                                        profession: profession.profession
+                                    }
+                                })
+                            }
+                        };
+                    })
+                };
+            
+                res.json(applicantData)
+                
+            }catch (error){
+                console.error(error);
+                res.status(404).json({ error: "wrong request" });
+            }
+        },
+
+        edit: async (req, res) => {
+
+            const idToEdit = req.params.id;
+
+            try{
+                Applicants.update({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                dni: req.body.dni,
+                email: req.body.email,
+                phone: req.body.phone,
+                urlProfile: req.body.urlProfile,
+                birthDate: req.body.birthDate,
+                gender: req.body.gender,
+                image: req.body.image
+                }, {
+                    where: {id: idToEdit}
+                })
+                
+            }catch (error){
+                console.error(error);
+                res.status(404).json({ error: "wrong request" })
+            }
+            }
         
-}    
 }
