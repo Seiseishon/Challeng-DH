@@ -9,7 +9,6 @@ export default function Carousel({ slides }) {
   }
 
   function circleClick(i) {
-    console.log(i);
     setCurrent(i);
   }
 

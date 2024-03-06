@@ -20,8 +20,8 @@ export default function Professions() {
   return (
     <>
       <div
-        className="p-4 mb-12 rounded shadow shadow-slate-400 flex flex-col
-      dark:shadow-bunker-200
+        className="p-4 mb-12 rounded shadow shadow-slate-400 flex flex-col w-[96%] mt-5 mx-auto
+      dark:shadow-bunker-200 max-md:col-[2] max-md:row-[2]
       "
       >
         <h4

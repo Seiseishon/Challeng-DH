@@ -23,7 +23,7 @@ export default function SearchWrap() {
   }
 
   return (
-    <section className="col-[2] row-[1] bg-white bottom-3 border-b border-l border-slate-300 flex items-center justify-between p-[0_3em] dark:bg-bunker-950 dark:border-bunker-700 transition duration-300">
+    <section className="col-[2] row-[1] bg-white bottom-3 border-b border-slate-300 flex items-center justify-between p-[0_3em] dark:bg-bunker-950 dark:border-bunker-700 transition duration-300">
       {open && (
         <div
           onClick={bottonClosed}

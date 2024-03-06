@@ -15,8 +15,8 @@ export default function ContentWrap() {
   return (
     <>
       <main
-        className="col-[2] row-[2] p-[3em] overflow-auto bg-slate-100 border-l border-slate-300
-      dark:bg-bunker-950 dark:border-bunker-700 dark:border-l transition-colors duration-300
+        className="col-[2] row-[2] p-[3em] overflow-auto bg-slate-100
+      dark:bg-bunker-950 transition-colors duration-300
       "
       >
         {/*Preventa*/}
