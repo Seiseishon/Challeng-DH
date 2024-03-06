@@ -10,13 +10,17 @@ import ContentWrap from "./components/contentWrap.jsx";
 import Formulario from "./components/Formulario.jsx";
 import Professions from "./components/Professions/Professions.jsx";
 
+
 const app = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: (
-      <div className="text-2xl text-red-800">upps un error</div>
-    ),
+      <div>
+      <div className="text-2xl text-red-900 flex justify-center my-20 ">¡Upps, un error!</div>
+      <figure><img className="bg-center" src="./src/assets/img/notFound/notFound.png"/></figure>      
+    </div>
+    ),      
     children: [
       {index: true, element: <ContentWrap />},
       {
