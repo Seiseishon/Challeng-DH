@@ -1,7 +1,8 @@
 export default function Formulario(prop) {
   return (
     <>
-      <form className="max-md:col-[2] max-md:row-[2] text-lg flex flex-col items-center mt-6 mx-auto w-[60%] h-[70%]
+      <form action="/api/applicants/create" method="POST"
+        encType="multipart/form-data" className="max-md:col-[2] max-md:row-[2] text-lg flex flex-col items-center mt-6 mx-auto w-[60%] h-[70%]
       border border-slate-600 rounded-xl shadow-slate-500 shadow-md transition-colors duration-300
       dark:text-bunker-200">
         <h1 className="text-slate-600 text-2xl my-5 dark:text-bunker-100">Postulate acá</h1>
@@ -70,3 +71,4 @@ export default function Formulario(prop) {
     </>
   );
 }
+
