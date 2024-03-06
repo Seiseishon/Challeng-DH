@@ -1,11 +1,12 @@
-
+import { Link } from "react-router-dom";
 import logoDh from "../assets/img/rh/logo-dh.png";
 
 export default function Logo() {
   return (
-    <>
-      <figure className="col-[1] row-[1] h-20 flex items-center content-start m-0 p-[0_3em] w-[300px] bg-white
-      dark:bg-bunker-950 transition duration-300
+    <Link>
+
+      <figure className="col-[1] row-[1] h-20 flex items-center content-start m-0 p-[0_3em] w-[300px] bg-white  border-r border-slate-300
+      dark:bg-bunker-950 dark:border-bunker-700 transition duration-300
       max-md:hidden
       ">
         <div className="w-10 h-10 rounded-[50%] overflow-hidden">
@@ -21,6 +22,6 @@ export default function Logo() {
           Digital House
         </figcaption>
       </figure>
-    </>
+    </Link>
   );
 }

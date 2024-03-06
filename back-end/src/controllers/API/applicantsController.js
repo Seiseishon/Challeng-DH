@@ -86,9 +86,9 @@ module.exports = {
         }
     },
 
-    create: (req, res) => {
+    create: async (req, res) => {
 
-        const newApplicant = {
+        const data = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             dni: req.body.dni,
@@ -97,18 +97,71 @@ module.exports = {
             urlProfile: req.body.urlProfile,
             birthDate: req.body.birthDate,
             gender: req.body.gender,
-            image: req.body.image};
+            image: req.body.image
+        };
             
+            try {
+                const newApplicant = await Applicants.create(data);
 
-        /* res.json(newApplicant) */
-        Applicants.create(newApplicant)
-        .then(applicant => {
-            return res.status(200).json({
-                data: applicant,
-                status: 200,
-                created: 'ok'
-            })
-        })
+                const applicantData = {
+                    meta: {
+                        status: 200,
+                        URL: `${req.protocol}://${req.get("host")}${req.url}`,
+                        count: newApplicant.length
+                    },
+                    data: newApplicant
+                            
+                        
+                    
+                };
+            
+                res.json(applicantData)
+                
+            }catch (error){
+                console.error(error);
+                res.status(404).json({ error: "wrong request" });
+            }
+        },
+
+        edit: async (req, res) => {
+
+            const idToEdit = req.params.id;
+            
+            try{
+                const applicantEdit = await Applicants.update({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                dni: req.body.dni,
+                email: req.body.email,
+                phone: req.body.phone,
+                urlProfile: req.body.urlProfile,
+                birthDate: req.body.birthDate,
+                gender: req.body.gender,
+                image: req.body.image,
+                profession: Professions.findByPk(req.body.profession)
+                }, {
+                    where: {id: idToEdit}
+                })
+                
+            }catch (error){
+                console.error(error);
+                res.status(404).json({ error: "wrong request" })
+            }
+        },
+
+        delete: async (req, res) => {
+            
+            try{
+                const idToDelete = await req.params.id;
+                
+                Applicants.destroy({
+                    where: {id: idToDelete}
+                });
+            
+            }catch(error){
+                console.error(error);
+                res.status(404).json({ error: "wrong request"})
+            }
+        }
         
-}    
 }

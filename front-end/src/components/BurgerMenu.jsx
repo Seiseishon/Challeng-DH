@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function BurgerMenu() {
     const [open, setOpen] = useState(false)
@@ -29,19 +30,19 @@ export default function BurgerMenu() {
         <h3>Opciones</h3>
         <ul>
           <li>
-            <a href="">Empresa</a>
+            <NavLink to='company'>Empresa</NavLink>
           </li>
           <li>
-            <a href="">Aspirantes</a>
+            <NavLink to='applicants'>Aspirantes</NavLink>
           </li>
           <li>
-            <a href="">Profesiones</a>
+            <NavLink to='professions'>Profesiones</NavLink>
           </li>
           <li>
-            <a href="">Postulate aquí</a>
+            <NavLink to='form'>Postulate aquí</NavLink>
           </li>
           <li>
-            <a href="">Contacto</a>
+            <NavLink to='contact'>Contacto</NavLink>
           </li>
         </ul>
       </section>

@@ -1,53 +1,36 @@
-export default function Card({ img, firstName, lastName, profession }) {
+import { Link } from "react-router-dom";
 
+export default function Card({ id, img, firstName, lastName, profession }) {
   return (
-    <>
-      <div
-        className="bg-slate-50 h-[320px] p-[1em] mb-[3rem] border-slate-200 rounded shadow-lg shadow-slate-300
-      dark:bg-bunker-900 dark:border-bunker-200 dark:shadow-bunker-500 transition-all duration-300 border text-center
-      "
-      >
-        <div>
-          <div className="w-[100px] h-[100px] rounded-[50%] m-[0_auto] overflow-hidden">
-            <img src={img} alt={firstName} />
-          </div>
-          <div>
-            <h2
-              className="m-[2em_0_0.75em] text-black text-[1rem] leading-[100%] font-bold
-            dark:text-bunker-200
-            "
-            >
-              {`${firstName} ${lastName}`}
-            </h2>
-            <ul
-              className="m-0 text-sm text-slate-400
-            dark:text-bunker-300
-            "
-            >
-              {profession.map((Element, i) => {
-                return (
-                  <li key={i}> {Element.profession} </li>
-                )
-              })}
-            </ul>
-          </div>
-          <div
-            className="border-slate-300 flex items-center justify-between
-          dark:text-bunker-200 border-t mt-5 pt-5 w-full
-          "
+    <Link to={`applicants/:${id}`}>
+      <div className="bg-transparent w-72 h-96 transition-colors duration-300">
+        <div className="w-48 h-48 rounded-full mx-auto mt-10 overflow-hidden">
+          <img src={img} alt={`${firstName} ${lastName}`} />
+        </div>
+        <div className="flex flex-col items-center mt-5">
+          <h4
+            className="text-slate-600 font-bold text-lg
+        dark:text-slate-200
+        "
+          >{`${firstName} ${lastName}`}</h4>
+          <ul
+            className="my-4 text-center text-slate-500
+        dark:text-slate-300"
           >
-            <button>
-              <i className="bi bi-star dark:hover:text-bunker-300"></i>
+            {profession.map((Element, i) => {
+              return <li key={i}> {Element.profession} </li>;
+            })}
+          </ul>
+          <div className="text-slate-400">
+            <button className="pr-4 hover:text-orange-500">
+              <i className="bi bi-envelope-at-fill"></i>
             </button>
-            <button>
-              <i className="bi bi-chat dark:hover:text-bunker-300"></i>
-            </button>
-            <button>
-              <i className="bi bi-envelope dark:hover:text-bunker-300"></i>
+            <button className="pr-4 hover:text-blue-500">
+              <i className="bi bi-linkedin"></i>
             </button>
           </div>
         </div>
       </div>
-    </>
+    </Link>
   );
 }
