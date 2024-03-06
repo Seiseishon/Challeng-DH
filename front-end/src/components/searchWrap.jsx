@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Search from "./search";
 
 export default function SearchWrap() {
   const [miClase, setMiClase] = useState("bi bi-moon-stars");
@@ -118,12 +119,7 @@ export default function SearchWrap() {
             dark:text-bright-turquoise-400 dark:hover:text-bright-turquoise-200
             "
           />
-          <input
-            type="text"
-            className="pl-[1em] py-[1px] pr-[2px] h-full ml-1 border-0 bg-white focus:bg-slate-100 text-slate-800
-            dark:bg-bunker-950 dark:focus:bg-bunker-900 dark:text-bunker-200 transition-colors duration-300
-            "
-          />
+          <Search/>
         </label>
       </div>
       <div className="w-40">
