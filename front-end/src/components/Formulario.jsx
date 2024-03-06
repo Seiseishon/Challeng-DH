@@ -2,7 +2,8 @@
 export default function Formulario(prop) {
     return (
       <>
-        <form>
+        <form action="/create" method="POST"
+        encType="multipart/form-data">
           <h1>Postulate acá</h1>
             <label>Nombre</label>
               <input placeholder = 'ingrese su nombre' type = 'text'></input>
@@ -38,6 +39,9 @@ export default function Formulario(prop) {
                 <option>Mujer</option>
                 <option>Prefiero no decirlo</option>
               </select>
+              <label>Foto de Perfil</label>
+              <input type="file" name="imgUser"/>
+              <button type="submit">Crear</button>
           
         </form>
       </>
